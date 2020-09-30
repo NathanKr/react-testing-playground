@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "../components/App";
 
 describe("App dom test", () => {
   let root;
@@ -15,11 +15,10 @@ describe("App dom test", () => {
   });
 
   test("h2 is Todos", () => {
+    // --- this is using testing-library/jest-dom
     // -- innerTest is NOT working in jest use innerHTML or textContent
     expect(root.querySelector("h2").textContent).toBe("Todos");
   });
 
-  test("Add button exist", () => {
-    expect(root.querySelector("button").textContent).toBe("Add");
-  });
+  
 });

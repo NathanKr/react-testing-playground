@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
-import "./App.css";
 
-function App() {
+function Todos() {
   const [todos, setTodos] = useState([]);
   const inputEl = useRef(null);
 
@@ -15,17 +14,17 @@ function App() {
   const todosElements = todos.map((it) => <li>{it}</li>);
 
   return (
-    <div className="App">
-      <h2>Todos</h2>
+    <div>
+      <button onClick={clickHandler}>Add</button>
       <input onKeyUp={(evt) =>{
         if(evt.key === 'Enter'){
           clickHandler();
         }
       }} ref={inputEl} type="text" />
-      <button onClick={clickHandler}>Add</button>
+      
       <ul>{todosElements}</ul>
     </div>
   );
 }
 
-export default App;
+export default Todos;
