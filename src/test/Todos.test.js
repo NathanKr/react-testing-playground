@@ -1,5 +1,6 @@
 import React from "react";
 import {fireEvent, render} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import Todos from "../components/Todos";
 
 describe("Todos test with testing-library/react", () => {
@@ -28,6 +29,19 @@ describe("Todos test with testing-library/react", () => {
     // --- set the input value
     fireEvent.change(input,{target : {value : "todo1"}})
     expect(input.value).toBe("todo1")
+  })
+
+  test('button text is changed to Add #2 after todo is added -> use userEvent',() =>{
+    // --- this is using testing-library/react
+    const input = getByPlaceholderText("insert a todo");
+    // --- set the input value
+    userEvent.type(input,"todo1");
+    // fireEvent.change(input,{target : {value : "todo1"}})
+    let buttonElem = getByText("Add #1");
+    userEvent.click(buttonElem);
+    // fireEvent.click(buttonElem);
+    buttonElem = getByText("Add #2");
+    expect(buttonElem).not.toBeNull();
   })
 
   test('button text is changed to Add #2 after todo is added',() =>{
