@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "../components/App";
 
+// --- pure jest test
+
 describe("App dom test", () => {
   let root;
 
@@ -19,6 +21,4 @@ describe("App dom test", () => {
     // -- innerTest is NOT working in jest use innerHTML or textContent
     expect(root.querySelector("h2").textContent).toBe("Todos");
   });
-
-  
 });

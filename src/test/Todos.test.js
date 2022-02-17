@@ -3,6 +3,8 @@ import {fireEvent, render} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Todos from "../components/Todos";
 
+// --- a less simple react-library test
+
 describe("Todos test with testing-library/react", () => {
   let getByText , getByPlaceholderText;
   beforeEach(()=>{
